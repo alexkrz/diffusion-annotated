@@ -30,3 +30,7 @@ The Jupyter Notebook explaining *Denoising Diffusion Probabilistic Models* and t
 
 - <https://github.com/huggingface/notebooks/blob/main/examples/annotated_diffusion.ipynb>
 - <https://github.com/huggingface/blog/blob/main/annotated-diffusion.md>
+
+The corresponding blog-post can be accessed here:
+
+- <https://huggingface.co/blog/annotated-diffusion>
