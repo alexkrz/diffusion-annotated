@@ -23,3 +23,10 @@ Collection of resources related to diffusion models
     cd denoising-diffusion-pytorch
     pip install -e .
     ```
+
+## Sources
+
+The Jupyter Notebook explaining *Denoising Diffusion Probabilistic Models* and the included images are taken from the following two repositories:
+
+- <https://github.com/huggingface/notebooks/blob/main/examples/annotated_diffusion.ipynb>
+- <https://github.com/huggingface/blog/blob/main/annotated-diffusion.md>
