@@ -1,2 +1,5 @@
 # Runtime artifacts
 .ipynb_checkpoints/
+
+# Results
+/results/
