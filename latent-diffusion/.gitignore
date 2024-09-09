@@ -1,0 +1,9 @@
+# Execution artifacts
+__pycache__/
+*.egg-info/
+
+# Large models
+models/ldm/text2img-large/*
+
+# Submodules
+/src/
