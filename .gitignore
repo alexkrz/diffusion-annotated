@@ -3,3 +3,6 @@
 
 # Results
 /results/
+
+# Rendered files (e.g. .pdf)
+/rendered/
