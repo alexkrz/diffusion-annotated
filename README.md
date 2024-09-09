@@ -24,22 +24,6 @@ Collection of resources related to diffusion models
     pip install -e .
     ```
 
-## Setup for LDM
-
-1. Add git submodules
-
-    ```bash
-        git submodule add https://github.com/CompVis/latent-diffusion.git
-        git submodule add https://github.com/CompVis/taming-transformers
-    ```
-
-2. Install submodule in editable mode
-
-    ```bash
-    cd taming-transformers
-    pip install -e .
-    ```
-
 ## Sources
 
 The Jupyter Notebook explaining *Denoising Diffusion Probabilistic Models* and the included images are taken from the following two repositories:
