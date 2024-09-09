@@ -2,7 +2,7 @@
 
 Collection of resources related to diffusion models
 
-## Setup
+## Setup for DDPM
 
 1. Add git submodule
 
@@ -21,6 +21,22 @@ Collection of resources related to diffusion models
 
     ```bash
     cd denoising-diffusion-pytorch
+    pip install -e .
+    ```
+
+## Setup for LDM
+
+1. Add git submodules
+
+    ```bash
+        git submodule add https://github.com/CompVis/latent-diffusion.git
+        git submodule add https://github.com/CompVis/taming-transformers
+    ```
+
+2. Install submodule in editable mode
+
+    ```bash
+    cd taming-transformers
     pip install -e .
     ```
 

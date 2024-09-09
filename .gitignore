@@ -1,5 +1,6 @@
 # Runtime artifacts
 .ipynb_checkpoints/
+.egg-info/*
 
 # Results
 /results/
