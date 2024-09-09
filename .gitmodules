@@ -1,3 +1,7 @@
 [submodule "denoising-diffusion-pytorch"]
 	path = denoising-diffusion-pytorch
 	url = https://github.com/lucidrains/denoising-diffusion-pytorch.git
+[submodule "latent-diffusion-Github"]
+	path = latent-diffusion-Github
+	url = https://github.com/CompVis/latent-diffusion.git
+	branch = main
