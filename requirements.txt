@@ -3,4 +3,4 @@ jupyterlab==4.2.*
 matplotlib==3.9.*
 datasets==2.21.* # Huggingface datasets
 diffusers==0.30.2 # Huggingface diffusers
-transformers==0.19.1 # Huggingface transformers
+transformers==4.44.2 # Huggingface transformers
