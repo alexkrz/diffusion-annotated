@@ -9,10 +9,4 @@ dependencies:
   - torchvision=0.19.*
   - ipykernel=6.28.*
   - pip>=23
-  - pip:
-      - ipywidgets==8.1.*
-      - jupyterlab==4.2.*
-      - matplotlib==3.9.*
-      - datasets==2.21.* # Huggingface datasets
-      - omegaconf==2.3.0
-      - lightning==2.4.0
+  # Install pip requirements with pip install -r requirements.txt
