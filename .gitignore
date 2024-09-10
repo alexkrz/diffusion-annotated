@@ -7,3 +7,6 @@
 
 # Rendered files (e.g. .pdf)
 /rendered/
+
+# Model checkpoints
+/checkpoints/
