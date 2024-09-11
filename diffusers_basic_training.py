@@ -26,7 +26,7 @@ class TrainingConfig:
     save_image_epochs = 10
     save_model_epochs = 30
     mixed_precision = "fp16"  # `no` for float32, `fp16` for automatic mixed precision
-    output_dir = "ddpm-butterflies-128"  # the model name locally and on the HF Hub
+    output_dir = "logs"  # the model name locally and on the HF Hub
 
     push_to_hub = False  # whether to upload the saved model to the HF Hub
     hub_private_repo = False
@@ -80,7 +80,7 @@ def train_loop(config, model, noise_scheduler, optimizer, train_dataloader, lr_s
         mixed_precision=config.mixed_precision,
         gradient_accumulation_steps=config.gradient_accumulation_steps,
         log_with="tensorboard",
-        project_dir=os.path.join(config.output_dir, "logs"),
+        project_dir=config.output_dir,
     )
     if accelerator.is_main_process:
         if config.push_to_hub:
@@ -88,7 +88,7 @@ def train_loop(config, model, noise_scheduler, optimizer, train_dataloader, lr_s
             repo = Repository(config.output_dir, clone_from=repo_name)
         elif config.output_dir is not None:
             os.makedirs(config.output_dir, exist_ok=True)
-        accelerator.init_trackers("train_example")
+        accelerator.init_trackers("ddpm-butterflies-128")
 
     # Prepare everything
     # There is no specific order to remember, you just need to unpack the
@@ -234,7 +234,8 @@ def main():
         num_training_steps=(len(train_dataloader) * config.num_epochs),
     )
 
-    # TODO: Start training with accelerate launcher
+    # Perform training
+    train_loop(config, model, noise_scheduler, optimizer, train_dataloader, lr_scheduler)
 
 
 if __name__ == "__main__":

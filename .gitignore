@@ -10,3 +10,6 @@
 
 # Model checkpoints
 /checkpoints/
+
+# Training logs
+/logs/
