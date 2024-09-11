@@ -6,10 +6,11 @@ from diffusers import DDIMScheduler, UNet2DModel, VQModel
 
 seed = 42
 
-# load all models
-unet = UNet2DModel.from_pretrained("./checkpoints/ldm-celebahq-256", subfolder="unet")
-vqvae = VQModel.from_pretrained("./checkpoints/ldm-celebahq-256", subfolder="vqvae")
-scheduler = DDIMScheduler.from_config("./checkpoints/ldm-celebahq-256", subfolder="scheduler")
+# Load all models
+# Model card is available at https://huggingface.co/CompVis/ldm-celebahq-256
+unet = UNet2DModel.from_pretrained("CompVis/ldm-celebahq-256", subfolder="unet")
+vqvae = VQModel.from_pretrained("CompVis/ldm-celebahq-256", subfolder="vqvae")
+scheduler = DDIMScheduler.from_config("CompVis/ldm-celebahq-256", subfolder="scheduler")
 
 # set to cuda
 torch_device = "cuda" if torch.cuda.is_available() else "cpu"
