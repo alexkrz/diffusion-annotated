@@ -12,7 +12,7 @@ A pipeline is a quick and easy way to run a model for inference, requiring no mo
 ```python
 from diffusers import DDPMPipeline
 
-ddpm = DDPMPipeline.from_pretrained("./checkpoints/ddpm-cat-256").to("cuda")
+ddpm = DDPMPipeline.from_pretrained("google/ddpm-cat-256").to("cuda")
 image = ddpm(num_inference_steps=25).images[0]
 image
 ```
@@ -33,8 +33,8 @@ To recreate the pipeline with the model and scheduler separately, let's write ou
 ```python
 from diffusers import DDPMScheduler, UNet2DModel
 
-scheduler = DDPMScheduler.from_pretrained("./checkpoints/ddpm-cat-256")
-model = UNet2DModel.from_pretrained("./checkpoints/ddpm-cat-256").to("cuda")
+scheduler = DDPMScheduler.from_pretrained("google/ddpm-cat-256")
+model = UNet2DModel.from_pretrained("google/ddpm-cat-256").to("cuda")
 ```
 
 2. Set the number of timesteps to run the denoising process for:
@@ -105,7 +105,7 @@ As you can see, this is already more complex than the DDPM pipeline which only c
 
 </Tip>
 
-Now that you know what you need for the Stable Diffusion pipeline, load all these components with the [from_pretrained()](https://huggingface.co/docs/diffusers/main/en/api/models/overview#diffusers.ModelMixin.from_pretrained) method. You can find them in the pretrained [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5) checkpoint, and each component is stored in a separate subfolder:
+Now that you know what you need for the Stable Diffusion pipeline, load all these components with the [from_pretrained()](https://huggingface.co/docs/diffusers/main/en/api/models/overview#diffusers.ModelMixin.from_pretrained) method. You can find them in the pretrained [`CompVis/stable-diffusion-v1-4`](https://huggingface.co/CompVis/stable-diffusion-v1-4) checkpoint, and each component is stored in a separate subfolder:
 
 
 ```python
@@ -114,10 +114,10 @@ import torch
 from transformers import CLIPTextModel, CLIPTokenizer
 from diffusers import AutoencoderKL, UNet2DConditionModel, PNDMScheduler
 
-vae = AutoencoderKL.from_pretrained("./checkpoints/stable-diffusion-v1-4", subfolder="vae")
-tokenizer = CLIPTokenizer.from_pretrained("./checkpoints/stable-diffusion-v1-4", subfolder="tokenizer")
-text_encoder = CLIPTextModel.from_pretrained("./checkpoints/stable-diffusion-v1-4", subfolder="text_encoder")
-unet = UNet2DConditionModel.from_pretrained("./checkpoints/stable-diffusion-v1-4", subfolder="unet")
+vae = AutoencoderKL.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="vae")
+tokenizer = CLIPTokenizer.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="tokenizer")
+text_encoder = CLIPTextModel.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="text_encoder")
+unet = UNet2DConditionModel.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="unet")
 ```
 
 Instead of the default [PNDMScheduler](https://huggingface.co/docs/diffusers/main/en/api/schedulers/pndm#diffusers.PNDMScheduler), exchange it for the [UniPCMultistepScheduler](https://huggingface.co/docs/diffusers/main/en/api/schedulers/unipc#diffusers.UniPCMultistepScheduler) to see how easy it is to plug a different scheduler in:
@@ -126,7 +126,7 @@ Instead of the default [PNDMScheduler](https://huggingface.co/docs/diffusers/mai
 ```python
 from diffusers import UniPCMultistepScheduler
 
-scheduler = UniPCMultistepScheduler.from_pretrained("./checkpoints/stable-diffusion-v1-4", subfolder="scheduler")
+scheduler = UniPCMultistepScheduler.from_pretrained("CompVis/stable-diffusion-v1-4", subfolder="scheduler")
 ```
 
 To speed up inference, move the models to a GPU since, unlike the scheduler, they have trainable weights:
