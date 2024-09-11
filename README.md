@@ -24,6 +24,16 @@ Collection of resources related to diffusion models
     pip install -e .
     ```
 
+## Tips & Tricks
+
+- Convert jupyter notebook to markdown:
+
+    ```bash
+    jupyter nbconvert --to markdown your_notebook.ipynb
+    ```
+
+- Use [Marktext editor](https://github.com/marktext/marktext) to convert markdown to .pdf
+
 ## Sources
 
 The Jupyter Notebook explaining *Denoising Diffusion Probabilistic Models* and the included images are taken from the following two repositories:
