@@ -1,7 +1,7 @@
 ipywidgets==8.1.*
-jupyterlab==4.2.*
+jupyterlab==4.3.*
 matplotlib==3.9.*
-datasets==2.21.* # Huggingface datasets
-diffusers==0.30.2 # Huggingface diffusers
-transformers==4.44.2 # Huggingface transformers
+datasets==2.* # Huggingface datasets
+diffusers==0.32.* # Huggingface diffusers
+transformers==4.48.* # Huggingface transformers
 tensorboard==2.17.*
