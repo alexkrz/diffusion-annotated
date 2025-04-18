@@ -10,7 +10,7 @@ seed = 42
 # Model card is available at https://huggingface.co/CompVis/ldm-celebahq-256
 unet = UNet2DModel.from_pretrained("CompVis/ldm-celebahq-256", subfolder="unet")
 vqvae = VQModel.from_pretrained("CompVis/ldm-celebahq-256", subfolder="vqvae")
-scheduler = DDIMScheduler.from_config("CompVis/ldm-celebahq-256", subfolder="scheduler")
+scheduler = DDIMScheduler.from_pretrained("CompVis/ldm-celebahq-256", subfolder="scheduler")
 
 # set to cuda
 torch_device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -21,7 +21,12 @@ vqvae.to(torch_device)
 # generate gaussian noise to be decoded
 generator = torch.manual_seed(seed)
 noise = torch.randn(
-    (1, unet.in_channels, unet.sample_size, unet.sample_size),
+    (
+        1,
+        unet.config.in_channels,
+        unet.config.sample_size,
+        unet.config.sample_size,
+    ),
     generator=generator,
 ).to(torch_device)
 
